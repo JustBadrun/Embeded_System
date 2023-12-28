@@ -1,8 +1,8 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-const char* ssid = "ZTE_2.4G_TuYTR4";
-const char* password = "kasnaman1";
+const char* ssid = "1163542";
+const char* password = "kitabisa";
 
 //Your Domain name with URL path or IP address with path
 const char* serverName = "http://192.168.1.12:1880/flood/node1";
