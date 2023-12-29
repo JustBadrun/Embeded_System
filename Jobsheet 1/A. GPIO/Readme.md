@@ -16,6 +16,7 @@ Program pertama akan digunakan untuk membuat blink dengan interval 100ms, 1 deti
 
 3. Program
 
+  ![beautify-picture (2)](https://github.com/JustBadrun/Embeded_System/assets/128286595/a4125fea-f606-4737-bbac-69fee09ddece)
 
 4. Flowchart
 
@@ -25,9 +26,53 @@ Program pertama akan digunakan untuk membuat blink dengan interval 100ms, 1 deti
 
    https://github.com/JustBadrun/Embeded_System/assets/128286595/a0d04c5c-72f7-4751-bc99-6c04fcde8f4c
 
-   
+   Kode di atas adalah program untuk mengendalikan LED dengan menggunakan ESP32. Berikut adalah penjelasan singkat untuk setiap bagian dari kode tersebut:
 
+  * **Inisialisasi PIN dan Setup:**
+   ```cpp
+   const int LedPin = 5;  // Led dihubungkan pada pin GPIO 5
 
+   void setup() {
+     pinMode(LedPin, OUTPUT);  // Inisialisasi Led sebagai OUTPUT
+   }
+   ```
+   Kode ini menetapkan bahwa LED akan dihubungkan ke pin GPIO 5 dan menginisialisasi pin tersebut sebagai output di dalam fungsi `setup()`. Fungsi `setup()` dijalankan sekali pada awal program.
+
+  * **Loop Utama:**
+   ```cpp
+   void loop() {
+     // Nyala 100ms dan mati selama 1 detik
+     digitalWrite(LedPin, HIGH);
+     delay(100);
+     digitalWrite(LedPin, LOW);
+     delay(1000);
+
+     // Nyala 1 detik dan mati selama 1 detik
+     digitalWrite(LedPin, HIGH);
+     delay(1000);
+     digitalWrite(LedPin, LOW);
+     delay(1000);
+
+     // Nyala 2 detik dan mati selama 1 detik
+     digitalWrite(LedPin, HIGH);
+     delay(2000);
+     digitalWrite(LedPin, LOW);
+     delay(1000);
+
+     // Nyala 3 detik dan mati selama 1 detik
+     digitalWrite(LedPin, HIGH);
+     delay(3000);
+     digitalWrite(LedPin, LOW);
+     delay(1000);
+   }
+   ```
+   Bagian ini merupakan loop utama program yang akan terus diulang. Setiap iterasi loop, LED akan menyala dan mati dengan pola waktu tertentu. Pola tersebut dijelaskan sebagai berikut:
+   - LED menyala selama 100ms dan mati selama 1 detik.
+   - LED menyala selama 1 detik dan mati selama 1 detik.
+   - LED menyala selama 2 detik dan mati selama 1 detik.
+   - LED menyala selama 3 detik dan mati selama 1 detik.
+
+   Pola ini akan terus berulang selama program berjalan di dalam fungsi `loop()`. Fungsi `delay()` digunakan untuk memberikan jeda waktu dalam milidetik antara operasi-operasi tersebut.
 
 
 <br></br>
