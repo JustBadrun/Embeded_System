@@ -1,39 +1,34 @@
 # GPIO 1
 Program pertama akan digunakan untuk membuat blink dengan interval 100ms, 1 detik, 2 detik, dan 3 detik sekali.
 
-**1. Alat dan Bahan**
-1. ESP32             ==> 1 buah
-2. LED               ==> 1 buah
-3. Resistor 220 Ohm  ==> 1 buah
-4. Resistor 10k Ohm  ==> 1 buah
-5. Push button       ==> 1 buah
+1. Alat dan Bahan
+   * ESP32             ==> 1 buah
+   * LED               ==> 1 buah
+   * Resistor 220 Ohm  ==> 1 buah
+   * Resistor 10k Ohm  ==> 1 buah
+   * Push button       ==> 1 buah
 
 
-**2. Rangkaian**
+2. Rangkaian
 
-![image](https://github.com/alfan459/Embedded-System/assets/54757609/4850f38f-859e-461b-a830-cd9b53a8e40e)
-
-
-**3. Program**
-
-Program dapat dilihat pada folder berikut ini: <a href="https://github.com/alfan459/Embedded-System/tree/master/Jobsheet%201%20Dasar%20Pemrograman%20ESP32/a.%20GPIO/Blink%20100ms%2C%201%20detik%2C%202%20detik%2C%203%20detik"> Program </a>
-
-**4. Hasil dan Pembahasan**
-
-![GPIO 2](https://github.com/alfan459/Embedded-System/assets/54757609/741c77fd-f7b2-49c1-835a-f1b214b5d36a)
-
-Untuk flowchart, bisa dilihat pada gambar di bawah ini:
-
-![Flowchart1](https://github.com/alfan459/Embedded-System/assets/54757609/3062ca6a-98dd-441c-8fe5-7019fac6f825)
-
-Pada skema rangkaian, terdapat 1 led dan 1 pushbutton. Untuk LED sendiri diatur menjadi output terhubung dengan GPIO5. Sedangkan pushbutton terhubung dengan GPIO4 sebagai input. Untuk mengatur perangkat agar menjadi input atau output, diatur dalam function setup. Lalu pada function loop digunakan untuk program utama yang akan berjalan secara terus menerus. Dimana program utamanya digunakan untuk menyalakan LED selama 100ms, lalu mematikan LED selama 1 detik. Menyalakan LED selama 1 detik, dan mematikannya selama 1 detik, lalu menyala selama 2 detik, dan mati selama 1 detik, dan kondisi terakhir adalah menyala selama 3 detik, lalu mati selama 1 detik. Setelah itu akan mengulang program dari awal yakni menyala selama 100ms.
-
-![carbon](https://github.com/alfan459/Embedded-System/assets/54757609/97217843-b313-4168-93b0-679e96dc2050)
+   ![image](https://github.com/alfan459/Embedded-System/assets/54757609/4850f38f-859e-461b-a830-cd9b53a8e40e)
 
 
-**5. Kesimpulan**
+3. Program
 
-Dari praktikum ini, kita dapat mengetahui bahwa kita bisa mengatur LED dengan interval waktu tertentu menggunakan perintah delay().
+
+4. Flowchart
+
+   ![Flowchart1](https://github.com/alfan459/Embedded-System/assets/54757609/3062ca6a-98dd-441c-8fe5-7019fac6f825)
+
+5. Hasil dan Pembahasan
+
+   https://github.com/JustBadrun/Embeded_System/assets/128286595/a0d04c5c-72f7-4751-bc99-6c04fcde8f4c
+
+   
+
+
+
 
 <br></br>
 
