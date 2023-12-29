@@ -1,7 +1,3 @@
-// 10 September 2023
-// Alfan, Ayum, Rani
-// Program Lanjutan Contoh PWM dengan LED
-
 // mengatur pin yang terhubung ke LED
 const int ledPin = 16;   // LED1 terhubung ke pin GPIO16
 const int ledPin2 = 17;  // LED2 terhubung ke pin GPIO17
