@@ -1,7 +1,3 @@
-// 08 September 2023
-// Alfan, Ayum, Rani
-// Program Mengendalikan LED menggunakan Push Button
-
 // mengatur posisi PIN
 const int button1 = 4;  // button1 dihubungkan pada pin GPIO4
 const int button2 = 6;  // button2 dihubungkan pada pin GPIO6
