@@ -1,38 +1,38 @@
 # D. Akuisi Data dan Kendali Perangkat IoT Menggunakan Protokol MQTT
 
 ## 1. Keterangan Singkat (Abstrak)
-<p align="justify">Dalam percobaan ini program ESP32 menggunakan protokol MQTT untuk mengakuisisi data sensor dan mengendalikan perangkat, seperti LED, melalui topik-topik MQTT. Setelah program diupload, dilakukan pemantauan melalui serial monitor dan dashboard Node-Red untuk mengendalikan nyala LED melalui tombol switch pada dashboard. Program yang kedua merupakan pengendalian LED ESP32 menggunakan layanan Adafruit MQTT, dalam hal ini pengendalian LED melalui dashboard yang ada di laman Adafruit.
+<p align="justify">Dalam percobaan ini program ESP32 menggunakan protokol MQTT untuk mengakuisisi data sensor dan mengendalikan perangkat, seperti LED, melalui topik-topik MQTT. Setelah program diupload, dilakukan pemantauan melalui serial monitor dan dashboard Node-Red untuk mengendalikan nyala LED melalui tombol switch pada dashboard.
    
 ## 2. Alat dan Bahan
 1. Node-RED
-2. Laman Adafruit
-3. ESP32
-4. Kabel jumper
-5. LED
-6. XAMPP
+2. ESP32
+3. Kabel jumper
+4. LED
+5. XAMPP
 
 ## 3. Source Code
 
-1. Code JSON Multi-Protocol IoT Server dapat dilihat <a href="https://github.com/brianrahma/system-embedded/blob/master/jobsheet%204/B.%20Transmisi%20Data%20Menggunakan%20Protokol%20HTTP/flow%20program%20Multi-Protocol%20IoT.json">disini</a>
-2. Program-1 ESP32 (kontrol nyala LED melalui dashboard Node-RED) dapat dilihat <a href="https://github.com/brianrahma/system-embedded/blob/master/jobsheet%204/D.%20Akuisi%20Data%20dan%20Kendali%20Perangkat%20IoT%20Menggunakan%20Protokol%20MQTT/program1/program1.ino">disini</a>
-3. Program-2 ESP32 (kontrol nyala LED melalui dashboard Adafruit) dapat dilihat <a href="https://github.com/brianrahma/system-embedded/blob/master/jobsheet%204/D.%20Akuisi%20Data%20dan%20Kendali%20Perangkat%20IoT%20Menggunakan%20Protokol%20MQTT/program2/program2.ino">disini</a>
+1. Code JSON Multi-Protocol IoT Server dapat dilihat <a href="">disini</a>
+2. Program ESP32 kontrol nyala LED melalui dashboard Node-RED dapat dilihat <a href="">disini</a>
+
 
 ## 4. Flow Program
-<img src="https://github.com/brianrahma/system-embedded/blob/master/jobsheet%204/B.%20Transmisi%20Data%20Menggunakan%20Protokol%20HTTP/flow%20program%20.png" width="800">
+![flow program ](https://github.com/JustBadrun/Embeded_System/assets/128286595/ddcda868-d0a5-4d99-b021-15370a3a6e8b)
 
-## 5. Hasil Percobaan Kontrol Nyala LED Melalui Dashboard Node-RED
+## 5. Hasil & Penjelasan Percobaan Kontrol Nyala LED Melalui Dashboard Node-RED
+### Dokumentasi Percobaan
 
 1. Flow chart program ESP32
    
-   <img src="https://github.com/brianrahma/system-embedded/assets/82065700/6d63519d-f4b5-4fc5-b70b-da925b0001ee" width="300">
+  ![flow program ](https://github.com/JustBadrun/Embeded_System/assets/128286595/8416db68-b655-4562-9c90-fedd291b8952)
    
 2. Dokumentasi
    
-   ![C2 -GIF](https://github.com/brianrahma/system-embedded/assets/82065700/b295425b-ba4a-4c29-b98b-77674c732489)
+   ![WhatsApp Image 2023-12-22 at 08 21 04_01c9056c](https://github.com/JustBadrun/Embeded_System/assets/128286595/13547144-2d63-43d3-8adb-016d78373858)
 
 4. Output serial monitor
    
-   <img src="https://github.com/brianrahma/system-embedded/blob/master/jobsheet%204/D.%20Akuisi%20Data%20dan%20Kendali%20Perangkat%20IoT%20Menggunakan%20Protokol%20MQTT/serialmonitor1.png" width="600">
+   ![serialmonitor1](https://github.com/JustBadrun/Embeded_System/assets/128286595/72266af7-a40f-45fc-933c-ce0a4062d98a)
 
 5. Debug Node-RED
    
@@ -40,21 +40,85 @@
    
 6. Dashboard Node-RED
    
-   <img src="https://github.com/brianrahma/system-embedded/blob/master/jobsheet%204/D.%20Akuisi%20Data%20dan%20Kendali%20Perangkat%20IoT%20Menggunakan%20Protokol%20MQTT/dashboard1.png" width="700">
+  ![WhatsApp Image 2023-12-22 at 08 22 13_1d17d3e7](https://github.com/JustBadrun/Embeded_System/assets/128286595/473009bc-0983-4b1b-9a15-ea96e908a5a0)
 
-## 6. Hasil Percobaan Kontrol Nyala LED Melalui Dashboard Adafruit
-1. Flow chart program ESP32
+### Penjelasan Kode
+![beautify-picture (1)](https://github.com/JustBadrun/Embeded_System/assets/128286595/b7ad94c3-3f76-43f4-a538-ed8f82348a06)
 
-   <img src="https://github.com/brianrahma/system-embedded/assets/82065700/9986c798-6e72-4c3d-b454-1c55d0c21d70" width="500">
+Kode di atas adalah program ESP32 yang menggunakan modul WiFi untuk mengukur suhu dan mengontrol LED melalui protokol MQTT. Berikut penjelasan singkat untuk setiap bagian dari kode tersebut:
 
-2. Dokumentasi
-   
-   ![C2 -GIF-2](https://github.com/brianrahma/system-embedded/assets/82065700/70dc304c-4c16-4d59-b78d-903ae099e480)
+1. **Inklusi Library:**
+   ```cpp
+   #include <WiFi.h>
+   #include <PubSubClient.h>
+   #include <ArduinoJson.h>
+   ```
+   Library WiFi.h digunakan untuk mengelola koneksi WiFi, library PubSubClient.h untuk mengimplementasikan klien MQTT, dan library ArduinoJson.h untuk memproses dan membangun data JSON.
 
-4. Output serial monitor
-   
-   <img src="https://github.com/brianrahma/system-embedded/blob/master/jobsheet%204/D.%20Akuisi%20Data%20dan%20Kendali%20Perangkat%20IoT%20Menggunakan%20Protokol%20MQTT/serialmonitor2.png" width="600">
-   
-5. Widget On/Off Adafruit
-   
-   <img src="https://github.com/brianrahma/system-embedded/blob/master/jobsheet%204/D.%20Akuisi%20Data%20dan%20Kendali%20Perangkat%20IoT%20Menggunakan%20Protokol%20MQTT/widget-adafruit.png" width="400">
+2. **Konfigurasi Koneksi WiFi dan MQTT Server:**
+   ```cpp
+   const char* ssid = "ZTE_2.4G_TuYTR4";
+   const char* password = "kasnaman1";
+   const char* mqtt_server = "broker.emqx.io";
+   ```
+   Nama dan kata sandi WiFi, serta alamat MQTT broker yang digunakan.
+
+3. **Inisialisasi Objek Klien WiFi dan MQTT:**
+   ```cpp
+   WiFiClient espClient;
+   PubSubClient client(espClient);
+   ```
+
+4. **Definisi GPIO dan Topik MQTT:**
+   ```cpp
+   const char led = 2;
+   #define TEMP_TOPIC "flood/node2"
+   #define LED_TOPIC "flood/node2/led"
+   ```
+
+   GPIO pin untuk LED dan topik MQTT yang digunakan.
+
+5. **Fungsi Callback untuk Menerima Pesan MQTT:**
+   ```cpp
+   void receivedCallback(char* topic, byte* payload, unsigned int length) {
+     // ...
+   }
+   ```
+
+   Fungsi ini akan dipanggil ketika perangkat menerima pesan dari topik yang telah di-subscribe.
+
+6. **Fungsi Koneksi MQTT:**
+   ```cpp
+   void mqttconnect() {
+     // ...
+   }
+   ```
+
+   Fungsi ini mencoba untuk terhubung ke broker MQTT dan melakukan subscribe ke topik yang diinginkan.
+
+7. **Fungsi Setup:**
+   ```cpp
+   void setup() {
+     // ...
+   }
+   ```
+
+   Fungsi setup yang pertama kali dijalankan saat perangkat dinyalakan. Menginisialisasi serial, koneksi WiFi, pin LED, dan mengatur server MQTT serta fungsi callback.
+
+8. **Fungsi Loop:**
+   ```cpp
+   void loop() {
+     // ...
+   }
+   ```
+
+   Fungsi loop yang berjalan terus-menerus setelah fungsi setup selesai. Jika koneksi MQTT terputus, akan mencoba kembali terhubung. Melakukan loop untuk mendengarkan pesan MQTT dan mengukur suhu setiap 5 detik.
+
+9. **Pengiriman Data MQTT:**
+   ```cpp
+   if (now - lastMsg > 5000) {
+     // ...
+   }
+   ```
+
+   Bagian ini mengirimkan data sensor (dalam bentuk objek JSON) ke topik MQTT "flood/node2" setiap 5 detik. Data suhu dan status LED dikirim bersamaan dalam bentuk JSON.
