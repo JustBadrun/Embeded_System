@@ -1,7 +1,3 @@
-// 10 September 2023
-// Alfan, Ayum, Rani
-// Program Contoh Simulasi Pemrosesan data menggunakan regresi linier dengan sensor soil moisture
-
 const int numReadings = 10;           // Jumlah pembacaan atau array
 
 int readings[numReadings];            // Pembacaan dari analoginput
