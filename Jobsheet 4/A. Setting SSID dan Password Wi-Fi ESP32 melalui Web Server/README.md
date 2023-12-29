@@ -62,9 +62,9 @@
 
   6. Fungsi createWebServer:
   * Menangani permintaan ke halaman web:
-    * '/': Menampilkan halaman utama dengan daftar jaringan WiFi yang ditemukan dan formulir untuk memasukkan kredensial WiFi baru.
-    * '/scan': Memindai ulang jaringan WiFi dan menampilkan hasilnya.
-    * '/setting': Menerima kredensial WiFi baru, menyimpannya ke EEPROM, dan me-restart perangkat.
+    * '/' : Menampilkan halaman utama dengan daftar jaringan WiFi yang ditemukan dan formulir untuk memasukkan kredensial WiFi baru.
+    * '/scan' : Memindai ulang jaringan WiFi dan menampilkan hasilnya.
+    * '/setting' : Menerima kredensial WiFi baru, menyimpannya ke EEPROM, dan me-restart perangkat.
   
 ### Kesimpulan:
 Kode ini dirancang untuk memudahkan konfigurasi WiFi pada perangkat dengan menyediakan antarmuka web yang dapat diakses dari perangkat lain. Pengguna dapat mengubah kredensial WiFi tanpa perlu mengubah kode secara langsung.
