@@ -1,7 +1,3 @@
-// 08 September 2023
-// Alfan, Ayum, Rani
-// Program Blink dengan interval waktu 100ms, 1 detik, 2 detik, dan 3 detik
-
 // Mengatur posisi PIN
 const int LedPin = 5;               // Led dihubungkan pada pin GPIO 5
 
