@@ -1,7 +1,3 @@
-// 10 September 2023
-// Alfan, Ayum, Rani
-// Program Mengatur Cahaya Led dengan Potensio
-
 #include <Arduino.h>
 #include <analogWrite.h>
 
