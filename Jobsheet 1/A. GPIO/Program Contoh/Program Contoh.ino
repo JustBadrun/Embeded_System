@@ -1,7 +1,3 @@
-// 08 September 2023
-// Alfan, Ayum, Rani
-// Program Mengakses GPIO dan PWMn
-
 // mengatur pin
 const int buttonPin = 4;    // pin 4 terhubung ke push button
 const int ledPin = 5;       // pin 5 terhubung ke LED
