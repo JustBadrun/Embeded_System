@@ -1,13 +1,25 @@
-# Jobsheet 1 - DASAR PEMROGRAMAN ESP32 UNTUK PEMROSESAN DATA INPUT/OUTPUT ANALOG DAN DIGITAL
+# JOBSHEET 1 - DASAR PEMROGRAMAN ESP32 UNTUK PEMROSESAN DATA INPUT/OUTPUT ANALOG DAN DIGITAL
 
-Jobsheet 1 merupakan jobsheet pertama yang berisi dasar-dasar penggunaan ESP32. Dalam jobsheet ini terdapat beberapa modul subjob yang mencakup berbagai aspek penting, termasuk:
+## Tujuan
 
-1. **GPIO (General Purpose Input/Output):** Memahami penggunaan pin GPIO pada ESP32 dan cara mengontrol perangkat eksternal.
-2. **PWM (Pulse Width Modulation):** Belajar tentang teknik modulasi lebar pulsa untuk mengendalikan intensitas cahaya atau kecepatan motor.
-3. **ADC (Analog-to-Digital Converter):** Mempelajari konversi sinyal analog menjadi digital dan mengambil bacaan dari sensor analog.
-4. **DAC (Digital-to-Analog Converter):** Mengubah data digital menjadi sinyal analog untuk mengendalikan perangkat analog.
-5. **Simulasi Pemrosesan Data Menggunakan Regresi Linier:** Menerapkan teknik regresi linier untuk analisis data dan prediksi.
+1. Mahasiswa dapat memahami dan mengoperasikan GPIO pada ESP32.
+2. Mahasiswa dapat memahami dan melakukan pengolahan data untuk input/output analog dan digital.
+3. Mahasiswa dapat melakukan optimalisasi pembacaan sensor analog menggunakan metode regresi linear.
 
-Setiap subjob dirancang untuk memberikan pemahaman yang kokoh tentang dasar ESP32, yang merupakan langkah awal yang penting dalam eksplorasi lebih lanjut tentang Internet of Things (IoT) dan pengembangan perangkat cerdas.
+## Alat dan Bahan
 
-Terima kasih dan semoga jobsheet ini bermanfaat!
+1) ESP32
+2) Breadboard
+3) Kabel jumper
+4) Potensiometer 10k Ohm (1)
+5) Sensor Capacitive Soil Moisture
+6) LED (5) dan Push Button (3)
+7) Multimeter
+8) Resistor 330,1K, 10K Ohm (@ 3)
+
+## Percobaan
+
+1. GPIO (General Purpose Input/Output)
+2. PWM (Pulse Width Modulation)
+3. ADC (Analog-to-Digital Converter) & DAC (Digital-to-Analog Converter)
+4. Simulasi Pemrosesan Data Menggunakan Regresi Linier
