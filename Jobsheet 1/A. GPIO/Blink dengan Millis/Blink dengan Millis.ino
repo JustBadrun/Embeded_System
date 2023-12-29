@@ -1,7 +1,3 @@
-// 08 September 2023
-// Alfan, Ayum, Rani
-// Program Blink Led menggunakan Millis
-
 // mengatur posisi PIN
 const int ledPin = 5;               // LED dihubungkan pada pin GPIO 5
 
