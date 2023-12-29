@@ -1,7 +1,3 @@
-// 10 September 2023
-// Alfan, Ayum, Rani
-// Program Contoh ADC dan DAC menggunakan Potensiometer
-
 // Potentiometer terhubung ke GPIO34 (Analog ADC1_CH6)
 const int potPin = 34;
 
