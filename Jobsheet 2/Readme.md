@@ -1,11 +1,21 @@
-# Jobsheet 2 - PROTOKOL KOMUNIKASI DAN SENSOR
+# JOBSHEET 2 - PROTOKOL KOMUNIKASI DAN SENSOR
 
-Jobsheet ini berfokus pada pemahaman dan penerapan protokol komunikasi serta penggunaan sensor pada platform ESP32. Terdapat beberapa praktikum yang akan memberikan pemahaman mendalam tentang capacitive touch menggunakan ESP32, mengakses sensor DHT, dan berinteraksi dengan sensor RFID.
+## Tujuan
+  1. Mahasiswa dapat memahami cara kerja protokol komunikasi yang terdapat pada ESP32, seperti UART, I2C, OneWire, SPI\
+  2. Mahasiswa dapat menggunakan protokol komunikasi data seperti UART, I2C, OneWire, dan SPI untuk mengakses sensor.
+  3. Mahasiswa dapat memanfaatkan transducer sensor dan actuator untuk membuat sebuah perangkat IoT.
 
-1. **ESP32 Capacitive Touch:** Pada praktikum ini, Anda akan mempelajari cara menggunakan fitur capacitive touch pada ESP32. Capacitive touch memungkinkan ESP32 mendeteksi sentuhan tanpa adanya kontak fisik.
-2. **Mengakses Sensor DHT:** Pada praktikum ini, fokusnya adalah pada penggunaan sensor DHT untuk membaca suhu dan kelembaban lingkungan. Sensor DHT sangat berguna dalam aplikasi berbasis IoT.
-3. **Mengakses Sensor RFID:** Praktikum ini memperkenalkan penggunaan sensor RFID (Radio-Frequency Identification) pada ESP32. Sensor ini dapat digunakan untuk mengidentifikasi objek atau kartu RFID.
+## Alat dan Bahan
+1) ESP32
+2) Breadboard
+3) Kabel jumper
+4) Sensor DHT 11, RFID
+5) LED (5) dan Push Button (3)
+6) Servo
+7) Resistor 330,1K, 10K Ohm (@ 3)
 
-Setiap subjob dirancang untuk memberikan pemahaman yang kokoh tentang dasar ESP32, yang merupakan langkah awal yang penting dalam eksplorasi lebih lanjut tentang Internet of Things (IoT) dan pengembangan perangkat cerdas.
-
-Terima kasih dan semoga jobsheet ini bermanfaat!
+## Percobaan
+Percobaan yang dilakukan pada jobsheet ini yaitu:
+1. ESP32 Capacitive Touch
+2. Mengakses Sensor DHT
+3. Mengakses Sensor RFID
