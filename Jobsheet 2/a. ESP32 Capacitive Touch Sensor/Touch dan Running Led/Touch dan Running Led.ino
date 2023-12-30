@@ -1,7 +1,3 @@
-// 10 September 2023
-// Alfan, Ayum, Rani
-// Program Nyala LED Blink dengan Touch Test
-
 // Mengatur pin
 const int touchPin = 4;        // Pin Touch yakni di GPIO4    
 const int led1 = 16;           // LED1 dihubungkan pada GPIO16
