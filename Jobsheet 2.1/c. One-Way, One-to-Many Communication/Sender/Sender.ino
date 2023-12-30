@@ -1,7 +1,3 @@
-// 11 September 2023
-// Alfan, Ayum, Rani
-// Program ESP32 Sebagai Pengirim dan mengirimkan ke beberapa ESP32
-
 // Menambahkan Library ESPNOW dan WiFi
 #include <esp_now.h>
 #include <WiFi.h>
