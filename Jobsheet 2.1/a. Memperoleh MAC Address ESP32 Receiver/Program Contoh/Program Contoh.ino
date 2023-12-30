@@ -1,7 +1,3 @@
-// 10 September 2023
-// Alfan, Ayum, Rani
-// Program Mengecek MAC Address ESP32
-
 // Menambahkan library WiFi
 #include "WiFi.h"
 
