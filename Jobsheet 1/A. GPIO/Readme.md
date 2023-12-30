@@ -8,15 +8,13 @@ Program pertama akan digunakan untuk membuat blink dengan interval 100ms, 1 deti
    * Resistor 10k Ohm  ==> 1 buah
    * Push button       ==> 1 buah
 
-
 2. Rangkaian
 
    ![image](https://github.com/alfan459/Embedded-System/assets/54757609/4850f38f-859e-461b-a830-cd9b53a8e40e)
 
-
 3. Program
 
-  ![beautify-picture (2)](https://github.com/JustBadrun/Embeded_System/assets/128286595/a4125fea-f606-4737-bbac-69fee09ddece)
+    ![beautify-picture (2)](https://github.com/JustBadrun/Embeded_System/assets/128286595/a4125fea-f606-4737-bbac-69fee09ddece)
 
 4. Flowchart
 
@@ -28,7 +26,7 @@ Program pertama akan digunakan untuk membuat blink dengan interval 100ms, 1 deti
 
    Kode di atas adalah program untuk mengendalikan LED dengan menggunakan ESP32. Berikut adalah penjelasan singkat untuk setiap bagian dari kode tersebut:
 
-  * **Inisialisasi PIN dan Setup:**
+  * Inisialisasi PIN dan Setup:
    ```cpp
    const int LedPin = 5;  // Led dihubungkan pada pin GPIO 5
 
@@ -38,7 +36,7 @@ Program pertama akan digunakan untuk membuat blink dengan interval 100ms, 1 deti
    ```
    Kode ini menetapkan bahwa LED akan dihubungkan ke pin GPIO 5 dan menginisialisasi pin tersebut sebagai output di dalam fungsi `setup()`. Fungsi `setup()` dijalankan sekali pada awal program.
 
-  * **Loop Utama:**
+  * Loop Utama:
    ```cpp
    void loop() {
      // Nyala 100ms dan mati selama 1 detik
@@ -169,7 +167,7 @@ Program pertama akan digunakan untuk mengendalikan LED menggunakan push button.
 
 3. Program
 
-    ![beautify-picture (4)](https://github.com/JustBadrun/Embeded_System/assets/128286595/abf9f0d2-ecf3-4550-8d3f-6211457527d9)
+    ![beautify-picture (5)](https://github.com/JustBadrun/Embeded_System/assets/128286595/9616f336-0fe5-4d59-916b-334411c46dfc)
 
 4. Flowchart
 
