@@ -1,4 +1,4 @@
-<h1 align="center">LAPORAN PRAKTIKUM EMBEDDED SYSTEM</h1>
+<h1 align="center">LAPORAN PRAKTIKUM<br>EMBEDDED SYSTEM</h1>
 <p align="center">
   <img src="https://web.polines.ac.id/wp-content/uploads/2022/01/Logo-Polines-96dpi-200px-150x150.png" width="200" height="200">
 <br>
