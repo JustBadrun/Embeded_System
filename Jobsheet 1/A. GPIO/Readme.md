@@ -80,49 +80,77 @@ Program pertama akan digunakan untuk membuat blink dengan interval 100ms, 1 deti
 # GPIO 2
 Program pertama akan digunakan untuk membuat blink 1 detik sekali menggunakan timer milis().
 
-**1. Alat dan Bahan**
-1. ESP32             ==> 1 buah
-2. LED               ==> 1 buah
-3. Resistor 220 Ohm  ==> 1 buah
-4. Resistor 10k Ohm  ==> 1 buah
-5. Push button       ==> 1 buah
+1. Alat dan Bahan
+    * ESP32             ==> 1 buah
+    * LED               ==> 1 buah
+    * Resistor 220 Ohm  ==> 1 buah
+    * Resistor 10k Ohm  ==> 1 buah
+    * Push button       ==> 1 buah
 
+2. Rangkaian
 
-**2. Rangkaian**
+    ![image](https://github.com/alfan459/Embedded-System/assets/54757609/4850f38f-859e-461b-a830-cd9b53a8e40e)
 
-![image](https://github.com/alfan459/Embedded-System/assets/54757609/4850f38f-859e-461b-a830-cd9b53a8e40e)
+3. Program
 
+    ![beautify-picture (3)](https://github.com/JustBadrun/Embeded_System/assets/128286595/d5461284-0e4a-48e6-acf5-4b3b2b505d8d)
 
-**3. Program**
+4. Flowchart
 
-Program dapat dilihat pada folder berikut ini: <a href="https://github.com/alfan459/Embedded-System/tree/master/Jobsheet%201%20Dasar%20Pemrograman%20ESP32/a.%20GPIO/Blink%20dengan%20Millis"> Program </a>
+    ![Flowchart2](https://github.com/alfan459/Embedded-System/assets/54757609/28954bd9-7499-47e5-b546-ec70c1f35ab9)
 
-**4. Hasil dan Pembahasan**
+5. Hasil dan Pembahasan
 
-![GPIO 1](https://github.com/alfan459/Embedded-System/assets/54757609/d6d24241-0add-4543-a049-e1a800bf9378)
+    ![GPIO 1](https://github.com/alfan459/Embedded-System/assets/54757609/d6d24241-0add-4543-a049-e1a800bf9378)
 
-Untuk Flowchart bisa dilihat pada gambar dibawah ini:
+    Kode di atas merupakan program sederhana untuk mengendalikan LED dengan menggunakan platform Arduino atau mikrokontroler sejenis. Program ini menggunakan konsep *blinking* (nyala-mati secara bergantian) dengan menggunakan fungsi `millis()` untuk mengatur interval waktu. Berikut adalah penjelasan singkat untuk setiap bagian dari kode tersebut:
 
-![Flowchart2](https://github.com/alfan459/Embedded-System/assets/54757609/28954bd9-7499-47e5-b546-ec70c1f35ab9)
+1. **Inisialisasi PIN dan Variabel:**
+   ```cpp
+   const int ledPin = 5;      // LED dihubungkan pada pin GPIO 5
+   int ledState = LOW;        // Kondisi yang akan digunakan untuk mengatur LED
+   unsigned long previousMillis = 0;  // Waktu terakhir LED dimatikan
+   const long interval = 1000;        // Interval untuk blinking (milliseconds)
+   ```
 
+   Kode ini menetapkan bahwa LED akan dihubungkan ke pin GPIO 5 dan menginisialisasi variabel `ledState` sebagai `LOW` (mati), `previousMillis` sebagai `0`, dan `interval` sebagai `1000` milidetik (1 detik).
 
-Program ini dibuat untuk mengendalikan LED sehingga LED akan berkedip setiap 1 detik. Program ini menggunakan metode non-blocking dengan `millis()`, yang memungkinkan Arduino untuk terus menjalankan instruksi di `loop()` tanpa harus menunggu. Beberapa variable yang digunakan adalah
-   - `ledPin`: Mendefinisikan pin yang digunakan untuk menghubungkan LED (GPIO 5).
-   - `ledState`: Variabel yang menunjukkan keadaan LED (HIGH atau LOW).
-   - `previousMillis`: Menyimpan waktu terakhir LED berubah keadaan.
-   - `interval`: Menyimpan interval waktu (dalam milidetik) untuk nge-blink LED (1000 ms atau 1 detik).
+2. **Setup:**
+   ```cpp
+   void setup() {
+     pinMode(ledPin, OUTPUT);  // Menginisialisasi LED sebagai Output
+   }
+   ```
 
-Di dalam `setup()`, `ledPin` diatur sebagai OUTPUT menggunakan `pinMode()`, sehingga Arduino tahu bahwa pin tersebut digunakan untuk mengontrol LED.
-Di dalam `loop()`, pertama-tama kita mendapatkan nilai `currentMillis` menggunakan `millis()`. `currentMillis` akan menyimpan waktu saat ini sejak Arduino dihidupkan. Selanjutnya, program memeriksa apakah selisih waktu antara `currentMillis` dan `previousMillis` lebih besar atau sama dengan `interval` (1 detik). Ini berfungsi sebagai mekanisme waktu untuk mengubah keadaan LED. Jika selisih waktu sudah mencapai atau melebihi `interval`, maka `previousMillis` diperbarui dengan `currentMillis`. Kemudian, program memeriksa keadaan `ledState`. Jika `ledState` adalah LOW (mati), maka akan diubah menjadi HIGH (nyala), dan sebaliknya. Terakhir, menggunakan `digitalWrite()`, LED akan diatur sesuai dengan nilai `ledState`. Ini akan membuat LED berkedip (nyala-mati) dengan interval 1 detik.
+   Fungsi `setup()` dijalankan sekali pada awal program. Di dalamnya, pin LED diinisialisasi sebagai output.
 
-![carbon (1)](https://github.com/alfan459/Embedded-System/assets/54757609/ce34b0e2-bd7c-4c2d-b6cf-499ff547da11)
+3. **Loop Utama:**
+   ```cpp
+   void loop() {
+     unsigned long currentMillis = millis();
 
+     if (currentMillis - previousMillis >= interval) {
+       previousMillis = currentMillis;  // Menyimpan waktu terakhir LED ngeblink
 
-**5. Kesimpulan**
+       // Jika LED dalam keadaan mati, maka nyalakan, dan sebaliknya
+       if (ledState == LOW) {
+         ledState = HIGH;
+       } else {
+         ledState = LOW;
+       }
 
-Program ini menciptakan efek berkedip pada LED dengan menggunakan fungsi `millis()` untuk menghindari ketergantungan waktu (blocking) dan memungkinkan Arduino menjalankan tugas lainnya tanpa harus menunggu.
+       // Atur nyala atau mati LED sesuai dengan nilai variabel ledState
+       digitalWrite(ledPin, ledState);
+     }
+   }
+   ```
 
+   Bagian ini merupakan loop utama program yang akan terus diulang. Setiap iterasi loop, program akan mengecek apakah sudah waktunya untuk mengubah keadaan LED (nyala atau mati) berdasarkan interval yang telah ditentukan. Fungsi `millis()` digunakan untuk menghitung waktu dalam milidetik sejak program dimulai.
 
+   - Jika waktu sekarang (`currentMillis`) dikurangi dengan waktu terakhir LED dimatikan (`previousMillis`) lebih besar atau sama dengan interval yang ditentukan, maka:
+     - Waktu terakhir LED dimatikan (`previousMillis`) diupdate.
+     - Kondisi LED (`ledState`) diubah (dari mati ke nyala atau sebaliknya).
+     - LED diatur sesuai dengan kondisi terkini (`ledState`) menggunakan `digitalWrite()`.
 <br></br>
 
 # GPIO 3
