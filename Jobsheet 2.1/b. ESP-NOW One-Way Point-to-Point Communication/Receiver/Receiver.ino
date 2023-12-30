@@ -1,7 +1,3 @@
-// 11 September 2023
-// Alfan, Ayum, Rani
-// Program ESP32 Sebagai Penerima
-
 // Penambahan Library
 #include <esp_now.h>
 #include <WiFi.h>
