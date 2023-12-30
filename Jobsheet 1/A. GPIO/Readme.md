@@ -101,7 +101,7 @@ Program pertama akan digunakan untuk membuat blink 1 detik sekali menggunakan ti
 
     ![GPIO 1](https://github.com/alfan459/Embedded-System/assets/54757609/d6d24241-0add-4543-a049-e1a800bf9378)
 
-    Kode di atas merupakan program sederhana untuk mengendalikan LED dengan menggunakan platform Arduino atau mikrokontroler sejenis. Program ini menggunakan konsep *blinking* (nyala-mati secara bergantian) dengan menggunakan fungsi `millis()` untuk mengatur interval waktu. Berikut adalah penjelasan singkat untuk setiap bagian dari kode tersebut:
+    Kode di atas merupakan program sederhana untuk mengendalikan LED dengan menggunakan ESP32. Program ini menggunakan konsep *blinking* (nyala-mati secara bergantian) dengan menggunakan fungsi `millis()` untuk mengatur interval waktu. Berikut adalah penjelasan singkat untuk setiap bagian dari kode tersebut:
 
   * Inisialisasi PIN dan Variabel:
    ```cpp
@@ -177,7 +177,7 @@ Program pertama akan digunakan untuk mengendalikan LED menggunakan push button.
 
     ![GPIO 3](https://github.com/alfan459/Embedded-System/assets/54757609/ea07038b-8f00-4882-8bbf-3fa435e164d7)
 
-    Kode di atas merupakan program sederhana untuk mengendalikan LED menggunakan push button pada platform Arduino atau mikrokontroler sejenis. Berikut adalah penjelasan singkat untuk setiap bagian dari kode tersebut:
+    Kode di atas merupakan program sederhana untuk mengendalikan LED menggunakan push button pada ESP32. Berikut adalah penjelasan singkat untuk setiap bagian dari kode tersebut:
 
   * Inisialisasi PIN dan Variabel:
    ```cpp
@@ -224,56 +224,99 @@ Program pertama akan digunakan untuk mengendalikan LED menggunakan push button.
 # GPIO 4
 Program pertama akan digunakan untuk mengendalikan LED agar blink setiap 500 ms ketika push button ke-2 ditekan.
 
-**1. Alat dan Bahan**
-1. ESP32             ==> 1 buah
-2. LED               ==> 2 buah
-3. Resistor 220 Ohm  ==> 1 buah
-4. Resistor 10k Ohm  ==> 1 buah
-5. Push button       ==> 2 buah
+1. Alat dan Bahan
+    * ESP32             ==> 1 buah
+    * LED               ==> 2 buah
+    * Resistor 220 Ohm  ==> 1 buah
+    * Resistor 10k Ohm  ==> 1 buah
+    * Push button       ==> 2 buah
 
+2. Rangkaian
 
-**2. Rangkaian**
-![Rangkaian GPIO 4](https://github.com/alfan459/Embedded-System/assets/54757609/389106d1-e4a8-41c3-8bed-ea941e62d3db)
+    ![Rangkaian GPIO 4](https://github.com/alfan459/Embedded-System/assets/54757609/389106d1-e4a8-41c3-8bed-ea941e62d3db)
 
+3. Program
 
-**3. Program**
+    ![beautify-picture (6)](https://github.com/JustBadrun/Embeded_System/assets/128286595/a4bb49d1-7a78-41b6-8ad1-83935a81274c)
 
-Program dapat dilihat pada folder berikut ini: <a href="https://github.com/alfan459/Embedded-System/tree/master/Jobsheet%201%20Dasar%20Pemrograman%20ESP32/a.%20GPIO/Blink%20500ms%202%20led%202%20button"> Program </a>
+4. Flowchart
 
-**4. Hasil dan Pembahasan**
+    ![Flowchart4](https://github.com/alfan459/Embedded-System/assets/54757609/f07744f4-de61-4698-a3f8-3103998632a0)
 
-![GPIO 4](https://github.com/alfan459/Embedded-System/assets/54757609/5c06b0e8-8ff4-441a-baa4-7ff00b3c4a38)
+5. Hasil dan Pembahasan
 
-![carbon (4)](https://github.com/alfan459/Embedded-System/assets/54757609/1bd6a672-4911-4fd1-aba6-b61ed23a02a3)
+    ![GPIO 4](https://github.com/alfan459/Embedded-System/assets/54757609/5c06b0e8-8ff4-441a-baa4-7ff00b3c4a38)
 
-![Flowchart4](https://github.com/alfan459/Embedded-System/assets/54757609/f07744f4-de61-4698-a3f8-3103998632a0)
+   Kode di atas adalah program untuk mengendalikan dua LED (LED1 dan LED2) menggunakan dua push button (button1 dan button2) pada ESP32. Berikut adalah penjelasan singkat untuk setiap bagian dari kode tersebut:
 
+  * Inisialisasi PIN dan Variabel:
+   ```cpp
+   const int button1 = 4;  // Button1 dihubungkan pada pin GPIO4
+   const int button2 = 2;  // Button2 dihubungkan pada pin GPIO2
+   const int led1 = 5;     // LED1 dihubungkan pada pin GPIO 5
+   const int led2 = 18;     // LED2 dihubungkan pada pin GPIO 18
 
-Program dimulai dengan inisialisasi variable
-- `button1` dan `button2` (pin 4 dan pin 2) adalah pin yang terhubung ke dua push button.
-- `led1` (pin 5) dan `led2` (pin 18) adalah pin yang terhubung ke dua buah LED.
-- `buttonState1` dan `buttonState2` adalah variabel yang akan digunakan untuk menyimpan status (HIGH atau LOW) dari dua push button.
-- `ledState` adalah variabel yang akan digunakan untuk mengendalikan status LED.
-- `previousMillis` digunakan untuk menyimpan waktu terakhir LED ngeblink.
-- `interval` adalah interval waktu (dalam milidetik) untuk blink LED (500 ms).
+   int buttonState1 = 0;   // Variabel untuk menyimpan keadaan button1, 0 atau 1
+   int buttonState2 = 0;   // Variabel untuk menyimpan keadaan button2, 0 atau 1
+   int ledState = LOW;     // Kondisi yang akan digunakan untuk set LED
+   unsigned long previousMillis = 0;  // Waktu terakhir LED ngeblink
+   const long interval = 500;         // Interval untuk blink (milliseconds)
+   ```
 
-Dalam blok `setup()`, program menginisialisasi pin-pin yang digunakan:
-   - `button1` dan `button2` diatur sebagai input (untuk membaca push button).
-   - `led1` dan `led2` diatur sebagai output (untuk mengendalikan LED).
+   Kode ini menetapkan bahwa button1 dan button2 akan dihubungkan ke pin GPIO 4 dan 2, sedangkan LED1 dan LED2 dihubungkan ke pin GPIO 5 dan 18. Variabel `buttonState1` dan `buttonState2` akan digunakan untuk menyimpan keadaan (HIGH atau LOW) dari button1 dan button2, dan variabel `ledState` digunakan untuk mengatur kondisi LED.
 
-Dalam blok `loop()`, program melakukan beberapa tugas berulang kali:
-   - `currentMillis` diisi dengan waktu sekarang menggunakan `millis()`. Ini digunakan untuk menghitung interval waktu.
-   - Program kemudian membaca kondisi `button1` dan `button2` menggunakan `digitalRead()`. Ini akan menghasilkan nilai HIGH jika push button ditekan, dan LOW jika tidak.
-   - Selanjutnya, program melakukan dua tugas berdasarkan kondisi push button:
-   - Jika `button1` (push button pertama) ditekan, maka `digitalWrite(led1, HIGH)` akan dijalankan untuk menyalakan LED pertama.
-   - Jika tidak, maka `digitalWrite(led1, LOW)` akan dijalankan untuk mematikan LED pertama.
-   - Jika `button2` (push button kedua) ditekan, maka program akan membuat LED1 dan LED2 berkedip dengan interval 500 ms menggunakan variabel `ledState` dan `previousMillis`.
+  * Setup:
+   ```cpp
+   void setup() {
+     // Menginisialisasi button sebagai input
+     pinMode(button1, INPUT);
+     pinMode(button2, INPUT);
 
+     // Menginisialisasi LED sebagai output
+     pinMode(led1, OUTPUT);
+     pinMode(led2, OUTPUT);
+   }
+   ```
 
-**5. Kesimpulan**
+   Fungsi `setup()` dijalankan sekali pada awal program. Di dalamnya, pin untuk button1, button2, led1, dan led2 diinisialisasi sebagai input atau output sesuai dengan kebutuhan.
 
-Program ini mengendalikan dua LED (led1 dan led2) dengan dua tombol (button1 dan button2). Ketika tombol 1 ditekan, LED 1 akan menyala, dan ketika tombol 2 ditekan, LED 2 akan menyala secara berkedip. Program akan terus berjalan dalam loop dan memeriksa keadaan tombol serta mengendalikan LED sesuai dengan input dari tombol.
+  * Loop Utama:
+   ```cpp
+   void loop() {
+     unsigned long currentMillis = millis();
 
+     // Membaca kondisi button1 dan button2
+     buttonState1 = digitalRead(button1);
+     buttonState2 = digitalRead(button2);
+
+     // Jika button1 ditekan maka LED1 akan menyala, jika tidak maka LED1 akan mati
+     if (buttonState1 == HIGH) {
+       digitalWrite(led1, HIGH);
+     } else {
+       digitalWrite(led1, LOW);
+     }
+
+     // Jika button2 ditekan maka kedua LED akan blink dengan interval 500ms
+     if (buttonState2 == HIGH) {
+       if (currentMillis - previousMillis >= interval) {
+         previousMillis = currentMillis;
+
+         // Jika ledState dalam keadaan mati, maka nyalakan dan sebaliknya
+         if (ledState == LOW) {
+           ledState = HIGH;
+         } else {
+           ledState = LOW;
+         }
+
+         // Atur nyala atau mati LED1 dan LED2 sesuai dengan nilai variabel ledState
+         digitalWrite(led1, ledState);
+         digitalWrite(led2, ledState);
+       }
+     }
+   }
+   ```
+
+   Bagian ini merupakan loop utama program yang akan terus diulang. Pada setiap iterasi loop, program membaca kondisi dari button1 dan button2 menggunakan `digitalRead()`. Berdasarkan kondisi tersebut, program menyalakan atau mematikan LED1 sesuai dengan keadaan button1. Selain itu, jika button2 ditekan, kedua LED (LED1 dan LED2) akan melakukan blinking dengan interval 500ms menggunakan variabel `ledState` dan `previousMillis`.
 
 <br></br>
 
