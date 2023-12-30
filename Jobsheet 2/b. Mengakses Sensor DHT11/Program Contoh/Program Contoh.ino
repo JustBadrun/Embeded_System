@@ -1,7 +1,3 @@
-// 10 September 2023
-// Alfan, Ayum, Rani
-// Program Contoh DHT11
-
 // Menambahkan library DHT
 #include "DHT.h"
 
