@@ -1,103 +1,139 @@
-# PWM 1: Example
+# ADC DAC: Example
 Program pertama akan digunakan untuk menampilkan pembacaan potensio.
 
-**1. Alat dan Bahan**
-1. ESP32             ==> 1 buah
-2. Potensio 10k Ohm  ==> 1 buah
+1. Alat dan Bahan
+      * ESP32             ==> 1 buah
+      * Potensio 10k Ohm  ==> 1 buah
 
+2. Rangkaian
 
-**2. Rangkaian**
+      ![image](https://github.com/alfan459/Embedded-System/assets/54757609/2c9c037a-9eb1-472a-833c-7137a8311d9a)
 
-![image](https://github.com/alfan459/Embedded-System/assets/54757609/2c9c037a-9eb1-472a-833c-7137a8311d9a)
+3. Program
 
+   ![beautify-picture (10)](https://github.com/JustBadrun/Embeded_System/assets/128286595/8f00432b-14a1-4c9a-abad-2518434a81be)
 
+4. Flowchart
 
-**3. Program**
+      ![Flowchart 1](https://github.com/alfan459/Embedded-System/assets/54757609/fb0bebfc-f73a-4bbc-886b-bc8e87bf75fc)
 
-Program dapat dilihat pada folder berikut ini: <a href="https://github.com/alfan459/Embedded-System/tree/master/Jobsheet%201%20Dasar%20Pemrograman%20ESP32/c.%20ADC%20dan%20DAC/Program%20Contoh"> Program </a>
+5. Hasil dan Pembahasan
 
-**4. Hasil dan Pembahasan**
+      ![ADC DAC 1](https://github.com/alfan459/Embedded-System/assets/54757609/67c66308-4865-4563-86f5-7198c5c76a53)
 
-![ADC DAC 1](https://github.com/alfan459/Embedded-System/assets/54757609/67c66308-4865-4563-86f5-7198c5c76a53)
+      Program ESP32 di atas membaca nilai analog dari potensiometer yang terhubung ke pin GPIO34 (Analog ADC1_CH6) dan menampilkan nilai tersebut ke Serial Monitor setiap 500 milidetik. Berikut adalah penjelasan untuk setiap bagian dari kode tersebut:
 
+   * Inisialisasi PIN dan Variabel:
+   ```cpp
+   // Potentiometer terhubung ke GPIO34 (Analog ADC1_CH6)
+   const int potPin = 34;
 
-Untuk flowchart, bisa dilihat pada gambar di bawah ini:
+   // Variable untuk menyimpan nilai potensiometer
+   int potValue = 0;
+   ```
 
-![Flowchart 1](https://github.com/alfan459/Embedded-System/assets/54757609/fb0bebfc-f73a-4bbc-886b-bc8e87bf75fc)
+   Kode ini menetapkan pin di mana potensiometer terhubung (GPIO34) dan mendeklarasikan variabel `potValue` untuk menyimpan nilai pembacaan analog dari potensiometer.
 
-![adc1](https://github.com/alfan459/Embedded-System/assets/54757609/cb9647dd-0e3f-44bf-808b-e0e33dc890d0)
+   * Setup:
+   ```cpp
+   void setup() {
+     Serial.begin(115200);  // Memulai komunikasi serial dengan baudrate 115200
+     delay(1000);           // Jeda waktu pertama kali
+   }
+   ```
 
+   Fungsi `setup()` dijalankan sekali pada awal program. Di dalamnya, komunikasi serial diatur dengan `Serial.begin(115200)`, dan program memberikan jeda 1000 milidetik (1 detik) menggunakan `delay(1000)` setelah memulai komunikasi serial.
 
+   * Loop Utama:
+   ```cpp
+   void loop() {
+     // Membaca nilai potensiometer
+     potValue = analogRead(potPin);
+     Serial.println(potValue);  // Menampilkan nilai potensio ke serial monitor
+     delay(500);                 // Jeda 500 milidetik (0.5 detik)
+   }
+   ```
 
-Terdapat potensiometer yang terhubung ke pin GPIO34 (Analog ADC1_CH6. Untuk komunikasi serial pada baudrate 115200. Menambahkan jeda waktu selama 1 detik pada awal eksekusi. Menggunakan fungsi `analogRead(potPin)` untuk membaca nilai analog dari potensiometer. Lalu nilai dibaca disimpan dalam variabel `potValue`. Setelah itu menampilkan nilai potensiometer ke Serial Monitor dengan `Serial.println(potValue)`. Menambahkan jeda waktu 500 milidetik (`delay(500)`) agar nilai yang ditampilkan tidak terlalu cepat.
+   Bagian ini merupakan loop utama program yang akan terus diulang. Pada setiap iterasi loop, nilai analog dari potensiometer dibaca menggunakan `analogRead(potPin)`. Nilai tersebut kemudian ditampilkan ke Serial Monitor dengan `Serial.println(potValue)`. Delay 500 milidetik (`delay(500)`) diatur antara setiap pembacaan nilai untuk memberikan interval waktu antar bacaan dan mencegah tampilan nilai yang terlalu cepat di Serial Monitor.
 
-
-**5. Kesimpulan**
-
-Program ini memberikan pemahaman dasar tentang penggunaan ADC (Analog-to-Digital Converter) pada Arduino. Untuk mengimplementasikan DAC (Digital-to-Analog Converter), diperlukan pin DAC dan perangkat pendukung tambahan. Dalam program ini, belum ada bagian yang mengendalikan DAC. Jika ingin menggabungkan penggunaan DAC, perlu memastikan bahwa mikrokontroler Arduino yang digunakan mendukung DAC dan memiliki pin DAC yang sesuai.
+Dengan cara ini, program tersebut memungkinkan pengguna untuk melihat nilai pembacaan analog dari potensiometer pada Serial Monitor secara real-time.
 
 
 <br></br>
 
-# PWM 2
+# ADC DAC 2
 Program kedua digunakan untuk mengatur cahaya LED menggunakan potensio.
 
-**1. Alat dan Bahan**
-1. ESP32             ==> 1 buah
-2. LED               ==> 1 buah
-3. Resistor 220 Ohm  ==> 1 buah
-3. Potensio 10k Ohm  ==> 1 buah
+1. Alat dan Bahan
+      * ESP32             ==> 1 buah
+      * LED               ==> 1 buah
+      * Resistor 220 Ohm  ==> 1 buah
+      * Potensio 10k Ohm  ==> 1 buah
 
+2. Rangkaian
 
-**2. Rangkaian**
+      ![rangkaian2](https://github.com/alfan459/Embedded-System/assets/54757609/cae8d5af-9686-42d8-a783-a5bd18d3a090)
 
-![rangkaian2](https://github.com/alfan459/Embedded-System/assets/54757609/cae8d5af-9686-42d8-a783-a5bd18d3a090)
+3. Program
 
+      ![beautify-picture (11)](https://github.com/JustBadrun/Embeded_System/assets/128286595/882ebd91-8dac-4ba7-9708-fd0286934a8b)
 
-**3. Program**
+4. Flowchart
 
-Program dapat dilihat pada folder berikut ini: <a href="https://github.com/alfan459/Embedded-System/tree/master/Jobsheet%201%20Dasar%20Pemrograman%20ESP32/b.%20PWM/Program%20Lanjutan%20PWM"> Program </a>
+      ![Flowchart 2](https://github.com/alfan459/Embedded-System/assets/54757609/63129470-c792-4efc-bd5b-05ef3fa92b87)
 
-**4. Hasil dan Pembahasan**
+5. Hasil dan Pembahasan
 
-![ADC DAC 2](https://github.com/alfan459/Embedded-System/assets/54757609/7e356dc6-fb4c-4f21-99e2-f1f4b3849738)
+      ![ADC DAC 2](https://github.com/alfan459/Embedded-System/assets/54757609/7e356dc6-fb4c-4f21-99e2-f1f4b3849738)
 
-Untuk flowchart, bisa dilihat pada gambar di bawah ini:
+      Program ESP32 di atas membaca nilai analog dari potensiometer yang terhubung ke pin GPIO34 dan mengirimkan nilai tersebut ke LED yang terhubung ke pin GPIO5 menggunakan modul PWM (Pulse Width Modulation). Berikut adalah penjelasan untuk setiap bagian dari kode tersebut:
 
-![Flowchart 2](https://github.com/alfan459/Embedded-System/assets/54757609/63129470-c792-4efc-bd5b-05ef3fa92b87)
+   * Inisialisasi PIN dan Variabel:
+   ```cpp
+   const int analogInPin = 34;     // Pin input analog untuk potensiometer
+   const int analogOutPin = 5;     // Pin output analog untuk LED
+   
+   const int freq = 5000;          // Frekuensi PWM
+   const int ledChannel = 0;       // PWM channel
+   const int resolution = 8;       // Resolusi PWM (8 bit)
+   
+   int sensorValue = 0;            // Variabel untuk menyimpan nilai pembacaan potensiometer
+   int outputValue = 0;            // Variabel untuk menyimpan nilai keluaran PWM yang dikirim ke LED
+   ```
 
+   Kode ini menetapkan pin di mana potensiometer dan LED terhubung, serta mengatur parameter PWM seperti frekuensi, channel, dan resolusi.
 
-![adc2](https://github.com/alfan459/Embedded-System/assets/54757609/96f9fe71-cd0e-4f95-8605-4cb253f8be29)
+   * Setup:
+   ```cpp
+   void setup() {
+     Serial.begin(115200);          // Inisialisasi komunikasi serial dengan baudrate 115200
 
+     // Konfigurasi LED PWM
+     ledcSetup(ledChannel, freq, resolution);
+     ledcAttachPin(analogOutPin, ledChannel);  // Menghubungkan channel PWM ke pin GPIO
+   }
+   ```
 
-Terdapat potensiometer yang terhubung ke pin GPIO34 (Analog input). Juga terdapat LED yang terhubung ke pin GPIO5 (Analog output).
-Untuk komunikasi serial pada baudrate diatur pada 115200.
+   Fungsi `setup()` dijalankan sekali pada awal program. Di dalamnya, komunikasi serial diatur dengan `Serial.begin(115200)`, dan konfigurasi LED PWM dilakukan menggunakan `ledcSetup` dan `ledcAttachPin`.
 
-**Pengaturan PWM:**
-   - Mengkonfigurasi LED PWM dengan `ledcSetup`.
-   - Menghubungkan channel PWM ke GPIO untuk mengontrol LED dengan `ledcAttachPin`.
+   * Loop Utama:
+   ```cpp
+   void loop() {
+     sensorValue = analogRead(analogInPin);            // Membaca nilai analog dari potensiometer
+     outputValue = map(sensorValue, 0, 4095, 0, 255);  // Menyesuaikan range nilai analog ke range PWM
+     analogWrite(analogOutPin, outputValue);           // Mengatur nilai PWM untuk mengendalikan LED
 
-**Loop Utama:**
-   - **Membaca Nilai Analog:**
-     - Menggunakan fungsi `analogRead(analogInPin)` untuk membaca nilai analog dari potensiometer.
-     - Menyimpan nilai analog dalam variabel `sensorValue`.
-   - **Mapping Nilai Analog:**
-     - Menggunakan fungsi `map` untuk mengonversi nilai analog (0-4095) ke rentang nilai PWM (0-255).
-     - Menyimpan nilai hasil mapping dalam variabel `outputValue`.
-   - **Mengatur LED:**
-     - Menggunakan `analogWrite` untuk mengatur kecerahan LED berdasarkan nilai yang telah dimapped.
-   - **Serial Monitor:**
-     - Menampilkan nilai sensor dan output ke Serial Monitor.
-   - **Jeda Waktu:**
-     - Menunggu 2 milidetik sebelum melakukan pembacaan nilai analog selanjutnya.
+     // Menampilkan hasil bacaan dan keluaran ke Serial Monitor
+     Serial.print("sensor = ");
+     Serial.print(sensorValue);
+     Serial.print("\t output = ");
+     Serial.println(outputValue);
 
-Program ini mengimplementasikan kontrol kecerahan LED menggunakan potensiometer. Nilai analog dari potensiometer dibaca, di-mapped, dan kemudian digunakan untuk mengatur kecerahan LED melalui PWM. Informasi nilai sensor dan output ditampilkan di Serial Monitor. Jeda waktu 2 milidetik memberikan waktu untuk proses ADC dan pemrosesan selanjutnya.
+     delay(2);  // Menunggu 2 milidetik sebelum pembacaan selanjutnya untuk ADC
+   }
+   ```
 
-
-**5. Kesimpulan**
-
-Program ini memberikan pemahaman tentang penggunaan potensiometer dan kontrol PWM pada Arduino. Potensiometer digunakan sebagai input analog, dan LED diatur menggunakan sinyal PWM.
-
+   Bagian ini merupakan loop utama program yang akan terus diulang. Pada setiap iterasi loop, nilai analog dari potensiometer dibaca menggunakan `analogRead(analogInPin)`. Nilai tersebut kemudian diubah menggunakan `map` untuk sesuaikan dengan rentang PWM (0-255), dan nilai PWM tersebut diatur pada LED menggunakan `analogWrite(analogOutPin, outputValue)`. Selain itu, hasil bacaan dan keluaran ditampilkan di Serial Monitor. Diberikan jeda 2 milidetik (`delay(2)`) sebelum pembacaan berikutnya untuk ADC.
 
 <br></br>
 
