@@ -105,7 +105,7 @@ Program pertama akan digunakan untuk membuat blink 1 detik sekali menggunakan ti
 
     Kode di atas merupakan program sederhana untuk mengendalikan LED dengan menggunakan platform Arduino atau mikrokontroler sejenis. Program ini menggunakan konsep *blinking* (nyala-mati secara bergantian) dengan menggunakan fungsi `millis()` untuk mengatur interval waktu. Berikut adalah penjelasan singkat untuk setiap bagian dari kode tersebut:
 
-1. **Inisialisasi PIN dan Variabel:**
+  * Inisialisasi PIN dan Variabel:
    ```cpp
    const int ledPin = 5;      // LED dihubungkan pada pin GPIO 5
    int ledState = LOW;        // Kondisi yang akan digunakan untuk mengatur LED
@@ -115,7 +115,7 @@ Program pertama akan digunakan untuk membuat blink 1 detik sekali menggunakan ti
 
    Kode ini menetapkan bahwa LED akan dihubungkan ke pin GPIO 5 dan menginisialisasi variabel `ledState` sebagai `LOW` (mati), `previousMillis` sebagai `0`, dan `interval` sebagai `1000` milidetik (1 detik).
 
-2. **Setup:**
+  * Setup:
    ```cpp
    void setup() {
      pinMode(ledPin, OUTPUT);  // Menginisialisasi LED sebagai Output
@@ -124,7 +124,7 @@ Program pertama akan digunakan untuk membuat blink 1 detik sekali menggunakan ti
 
    Fungsi `setup()` dijalankan sekali pada awal program. Di dalamnya, pin LED diinisialisasi sebagai output.
 
-3. **Loop Utama:**
+  * Loop Utama:
    ```cpp
    void loop() {
      unsigned long currentMillis = millis();
@@ -147,61 +147,80 @@ Program pertama akan digunakan untuk membuat blink 1 detik sekali menggunakan ti
 
    Bagian ini merupakan loop utama program yang akan terus diulang. Setiap iterasi loop, program akan mengecek apakah sudah waktunya untuk mengubah keadaan LED (nyala atau mati) berdasarkan interval yang telah ditentukan. Fungsi `millis()` digunakan untuk menghitung waktu dalam milidetik sejak program dimulai.
 
-   - Jika waktu sekarang (`currentMillis`) dikurangi dengan waktu terakhir LED dimatikan (`previousMillis`) lebih besar atau sama dengan interval yang ditentukan, maka:
-     - Waktu terakhir LED dimatikan (`previousMillis`) diupdate.
-     - Kondisi LED (`ledState`) diubah (dari mati ke nyala atau sebaliknya).
-     - LED diatur sesuai dengan kondisi terkini (`ledState`) menggunakan `digitalWrite()`.
+     - Jika waktu sekarang (`currentMillis`) dikurangi dengan waktu terakhir LED dimatikan (`previousMillis`) lebih besar atau sama dengan interval yang ditentukan, maka:
+       - Waktu terakhir LED dimatikan (`previousMillis`) diupdate.
+       - Kondisi LED (`ledState`) diubah (dari mati ke nyala atau sebaliknya).
+       - LED diatur sesuai dengan kondisi terkini (`ledState`) menggunakan `digitalWrite()`.
 <br></br>
 
 # GPIO 3
 Program pertama akan digunakan untuk mengendalikan LED menggunakan push button.
 
-**1. Alat dan Bahan**
-1. ESP32             ==> 1 buah
-2. LED               ==> 1 buah
-3. Resistor 220 Ohm  ==> 1 buah
-4. Resistor 10k Ohm  ==> 1 buah
-5. Push button       ==> 1 buah
+1. Alat dan Bahan
+    * ESP32             ==> 1 buah
+    * LED               ==> 1 buah
+    * Resistor 220 Ohm  ==> 1 buah
+    * Resistor 10k Ohm  ==> 1 buah
+    * Push button       ==> 1 buah
 
+2. Rangkaian
 
-**2. Rangkaian**
+    ![image](https://github.com/alfan459/Embedded-System/assets/54757609/4850f38f-859e-461b-a830-cd9b53a8e40e)
 
-![image](https://github.com/alfan459/Embedded-System/assets/54757609/4850f38f-859e-461b-a830-cd9b53a8e40e)
+3. Program
 
+    ![beautify-picture (4)](https://github.com/JustBadrun/Embeded_System/assets/128286595/abf9f0d2-ecf3-4550-8d3f-6211457527d9)
 
-**3. Program**
+4. Flowchart
 
-Program dapat dilihat pada folder berikut ini: <a href="https://github.com/alfan459/Embedded-System/tree/master/Jobsheet%201%20Dasar%20Pemrograman%20ESP32/a.%20GPIO/Program%20Contoh"> Program </a>
+    ![Flowchart3](https://github.com/alfan459/Embedded-System/assets/54757609/e2f8bf50-de43-4b2e-b198-aa04fa0019ef)
 
-**4. Hasil dan Pembahasan**
+5. Hasil dan Pembahasan
 
-![GPIO 3](https://github.com/alfan459/Embedded-System/assets/54757609/ea07038b-8f00-4882-8bbf-3fa435e164d7)
+    ![GPIO 3](https://github.com/alfan459/Embedded-System/assets/54757609/ea07038b-8f00-4882-8bbf-3fa435e164d7)
 
-Flowchart dapat dilihat pada gambar dibawah ini:
+    Kode di atas merupakan program sederhana untuk mengendalikan LED menggunakan push button pada platform Arduino atau mikrokontroler sejenis. Berikut adalah penjelasan singkat untuk setiap bagian dari kode tersebut:
 
-![Flowchart3](https://github.com/alfan459/Embedded-System/assets/54757609/e2f8bf50-de43-4b2e-b198-aa04fa0019ef)
+  * Inisialisasi PIN dan Variabel:
+   ```cpp
+   const int buttonPin = 4;  // Pin 4 terhubung ke push button
+   const int ledPin = 5;     // Pin 5 terhubung ke LED
+   int buttonState = 0;      // Variabel untuk menyimpan keadaan push button
+   ```
 
-![carbon (3)](https://github.com/alfan459/Embedded-System/assets/54757609/40e5cc25-9809-485e-ab14-27efb062aca7)
+   Kode ini menetapkan bahwa push button akan dihubungkan ke pin GPIO 4 dan LED dihubungkan ke pin GPIO 5. Variabel `buttonState` akan digunakan untuk menyimpan keadaan (HIGH atau LOW) dari push button.
 
+  * Setup:
+   ```cpp
+   void setup() {
+     Serial.begin(115200);       // Inisialisasi komunikasi serial pada 115200 bps
+     pinMode(buttonPin, INPUT);  // Inisialisasi push button sebagai input
+     pinMode(ledPin, OUTPUT);    // Inisialisasi LED sebagai output
+   }
+   ```
 
-Program dimulai dengan inisialisasi variable input output:
-- `buttonPin` (pin 4) dan `ledPin` (pin 5) dideklarasikan sebagai konstanta untuk menentukan pin yang akan digunakan dalam program.
-- `buttonState` adalah variabel yang akan digunakan untuk menyimpan status (HIGH atau LOW) dari push button.
+   Fungsi `setup()` dijalankan sekali pada awal program. Di dalamnya, pin untuk push button diinisialisasi sebagai input, dan pin untuk LED diinisialisasi sebagai output. Selain itu, komunikasi serial juga diinisialisasi untuk keperluan debugging.
 
-Dalam blok `setup()`, program menginisialisasi komunikasi serial dengan `Serial.begin(115200)`, yang memungkinkan program untuk berkomunikasi dengan komputer melalui Serial Monitor dengan kecepatan 115200 baud. Selanjutnya, `pinMode()` digunakan untuk menginisialisasi `buttonPin` sebagai input (untuk membaca push button) dan `ledPin` sebagai output (untuk mengendalikan LED).
+  * Loop Utama:
+   ```cpp
+   void loop() {
+     buttonState = digitalRead(buttonPin);    // Membaca nilai push button secara digital dan menyimpannya di variabel buttonState
+     Serial.println(buttonState);             // Menampilkan nilai buttonState di serial monitor
 
-Dalam blok `loop()`, program melakukan beberapa tugas berulang kali:
-   - `buttonState` diisi dengan nilai yang dibaca dari `buttonPin` menggunakan `digitalRead()`. Ini akan menghasilkan nilai HIGH jika push button ditekan, dan LOW jika tidak.
-   - `Serial.println(buttonState)` digunakan untuk mencetak nilai `buttonState` ke Serial Monitor sehingga kita dapat melihat status push button dalam Serial Monitor.
-   - Program kemudian memeriksa nilai `buttonState` dalam sebuah kondisi:
-   - Jika `buttonState` bernilai HIGH (push button ditekan), maka `digitalWrite(ledPin, HIGH)` akan dijalankan untuk menyalakan LED dengan menyetel pin `ledPin` menjadi HIGH.
-   - Jika `buttonState` bernilai LOW (push button tidak ditekan), maka `digitalWrite(ledPin, LOW)` akan dijalankan untuk mematikan LED dengan menyetel pin `ledPin` menjadi LOW.
+     // Jika buttonState bernilai HIGH atau push button ditekan, maka akan menyalakan LED
+     if (buttonState == HIGH) {
+       digitalWrite(ledPin, HIGH);           // Menyalakan LED
+     } 
+     // Jika tidak ditekan, maka matikan LED
+     else {
+       digitalWrite(ledPin, LOW);            // Mematikan LED
+     }
+   }
+   ```
 
+   Bagian ini merupakan loop utama program yang akan terus diulang. Pada setiap iterasi loop, program membaca nilai dari push button menggunakan `digitalRead()` dan menyimpannya di variabel `buttonState`. Nilai `buttonState` kemudian ditampilkan di serial monitor untuk pemantauan.
 
-**5. Kesimpulan**
-
-Program ini memberikan kemampuan untuk mengontrol LED dengan push button. Ketika push button ditekan, LED akan menyala; jika tidak, LED akan mati. Selain itu, status push button akan dicetak di Serial Monitor untuk pemantauan.
-
+   Berdasarkan nilai `buttonState`, program memutuskan apakah push button ditekan atau tidak. Jika `buttonState` bernilai `HIGH`, artinya push button ditekan, maka program akan menyalakan LED dengan menggunakan `digitalWrite(ledPin, HIGH)`. Jika tidak ditekan, maka LED dimatikan dengan menggunakan `digitalWrite(ledPin, LOW)`.
 <br></br>
 
 # GPIO 4
