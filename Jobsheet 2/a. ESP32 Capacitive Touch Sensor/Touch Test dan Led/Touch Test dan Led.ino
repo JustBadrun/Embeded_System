@@ -1,7 +1,3 @@
-// 10 September 2023
-// Alfan, Ayum, Rani
-// Program Menyalakan LED dengan Touch Test
-
 // Mengatur pin
 const int touchPin = 4;        // Pin Touch yakni di GPIO4    
 const int ledPin = 16;         // Pin LED dihubungkan pada GPIO16
