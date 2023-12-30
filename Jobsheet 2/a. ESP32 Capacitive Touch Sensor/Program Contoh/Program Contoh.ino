@@ -1,7 +1,3 @@
-// 10 September 2023
-// Alfan, Ayum, Rani
-// Program Contoh ESP32 Touch Test
-
 void setup() {
   Serial.begin(115200);     // komunikasi serial diatur pada baudrate 115200 
   delay(1000);              // delay awal 
