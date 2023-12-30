@@ -1,72 +1,65 @@
 # ESP32 TOUCH 1: Example
 Program pertama akan digunakan untuk menampilkan pembacaan sensor touch ESP32.
 
-**1. Alat dan Bahan**
+## Alat dan Bahan
 1. ESP32             ==> 1 buah
 
-**2. Rangkaian**
+## Rangkaian
 
 ![image](https://github.com/alfan459/Embedded-System/assets/54757609/f172e71d-7663-476e-b929-b32ce02d00b5)
 
+## Program
 
-**3. Program**
+![beautify-picture (3)](https://github.com/JustBadrun/Embeded_System/assets/128286595/f660db38-9ba6-442f-8be5-060c76f1175c)
 
-Program dapat dilihat pada folder berikut ini: <a href="https://github.com/alfan459/Embedded-System/tree/master/Jobsheet%202%20Protokol%20Komunikasi%20dan%20Sensor/a.%20ESP32%20Capacitive%20Touch%20Sensor/Program%20Contoh"> Program </a>
-
-**4. Hasil dan Pembahasan**
-
-https://github.com/alfan459/Embedded-System/assets/54757609/caead734-0d30-4f79-be89-72f7cb674c8f
-
-Untuk flowchart, bisa dilihat pada gambar di bawah ini:
+## Flowchart
 
 ![Flowchart 1](https://github.com/alfan459/Embedded-System/assets/54757609/94fcdd67-e4f3-4228-8b80-c2f623d2e039)
 
-Program ini adalah contoh penggunaan fitur *touch* pada ESP32. Fitur ini memungkinkan ESP32 membaca nilai dari sensor sentuh yang terhubung ke pin tertentu. Berikut analisis singkat dari program:
+## Hasil dan Pembahasan
 
-1. **Serial Communication Setup:**
-   - Baudrate serial diatur pada 115200 bps.
-   - Terdapat delay awal sebesar 1000 ms untuk memberikan waktu ESP32 untuk stabil.
+https://github.com/alfan459/Embedded-System/assets/54757609/caead734-0d30-4f79-be89-72f7cb674c8f
 
-```cpp
-Serial.begin(115200);
-delay(1000);
-```
+Program di atas merupakan program sederhana untuk menguji sensor sentuh pada ESP32. Berikut adalah penjelasan singkat mengenai kode tersebut:
 
-2. **Loop:**
-   - Pada setiap iterasi loop, nilai dari sensor sentuh yang terhubung ke pin GPIO 4 dibaca menggunakan fungsi `touchRead(4)`.
-   - Nilai tersebut kemudian ditampilkan melalui Serial Monitor.
-   - Terdapat delay 1000 ms untuk memberikan interval waktu antar pembacaan.
+1. **Setup:**
+   ```cpp
+   void setup() {
+     Serial.begin(115200);     // Inisialisasi komunikasi serial dengan baudrate 115200
+     delay(1000);              // Jeda awal selama 1000 milidetik (1 detik)
+     Serial.println("ESP32 Touch Test");  // Menampilkan pesan di Serial Monitor
+   }
+   ```
 
-```cpp
-Serial.println(touchRead(4));
-delay(1000);
-```
+   Fungsi `setup()` dijalankan sekali pada awal program. Di dalamnya, komunikasi serial diatur dengan baudrate 115200, kemudian terdapat jeda awal selama 1000 milidetik, dan pesan "ESP32 Touch Test" ditampilkan di Serial Monitor.
 
-Praktikum berhasil dilakukan jika ESP32 mampu membaca dan menampilkan nilai sensor sentuh pada Serial Monitor. Variasi nilai yang ditampilkan mencerminkan tingkat sentuhan pada sensor. Perlu dipahami bahwa nilai yang dibaca dari sensor sentuh bersifat relatif dan dapat bervariasi tergantung pada kondisi lingkungan.
+2. **Loop Utama:**
+   ```cpp
+   void loop() {
+     Serial.println(touchRead(4));  // Membaca dan menampilkan nilai sentuhan pada pin Touch 0 (GPIO 4) di Serial Monitor
+     delay(1000);  // Jeda selama 1000 milidetik (1 detik)
+   }
+   ```
 
-**5. Kesimpulan**
+   Bagian ini merupakan loop utama program yang akan terus diulang. Pada setiap iterasi loop, nilai sentuhan pada pin Touch 0 (GPIO 4) dibaca menggunakan fungsi `touchRead(4)`. Nilai tersebut kemudian ditampilkan di Serial Monitor menggunakan `Serial.println()`. Setelah itu, program menunggu selama 1000 milidetik sebelum membaca kembali nilai sentuhan.
 
-Praktikum berhasil dilakukan jika ESP32 mampu membaca dan menampilkan nilai sensor sentuh pada Serial Monitor.
-
+Program ini sederhana dan digunakan untuk memantau nilai sentuhan pada pin Touch 0 (GPIO 4) dari ESP32 dan menampilkannya di Serial Monitor setiap detik sekali. Nilai yang ditampilkan akan berupa angka analog, dan nilai yang lebih tinggi biasanya menunjukkan sentuhan yang lebih kuat.
 <br></br>
 
 # ESP32 TOUCH 2: Menyalakan LED Lewat Sensor Touch
 Program kedua digunakan untuk mengatur kondisi LED menyala atau tidak melalui sensor touch ESP 32.
 
-**1. Alat dan Bahan**
+## Alat dan Bahan
 1. ESP32             ==> 1 buah
 2. LED               ==> 1 buah
 3. Resistor 220 Ohm  ==> 1 buah
 
-
-**2. Rangkaian**
+## Rangkaian
 
 ![image](https://github.com/alfan459/Embedded-System/assets/54757609/1eaff866-7a60-478d-a3d5-e373569772c9)
 
+## Program
 
-**3. Program**
-
-Program dapat dilihat pada folder berikut ini: <a href="[https://github.com/alfan459/Embedded-System/tree/master/Jobsheet%201%20Dasar%20Pemrograman%20ESP32/b.%20PWM/Program%20Lanjutan%20PWM](https://github.com/alfan459/Embedded-System/tree/master/Jobsheet%202%20Protokol%20Komunikasi%20dan%20Sensor/a.%20ESP32%20Capacitive%20Touch%20Sensor/Touch%20Test%20dan%20Led)"> Program </a>
 
 **4. Hasil dan Pembahasan**
 
