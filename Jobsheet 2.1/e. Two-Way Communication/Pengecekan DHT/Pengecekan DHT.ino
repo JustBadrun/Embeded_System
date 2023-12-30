@@ -1,7 +1,3 @@
-// 11 September 2023
-// Alfan, Ayum, Rani
-// Program Pengecekan DHT
-
 // Menambahkan Library DHT
 #include "DHT.h"
 #define DHTPIN 4                          // Sensor DHT terhubung ke pin GPIO4
