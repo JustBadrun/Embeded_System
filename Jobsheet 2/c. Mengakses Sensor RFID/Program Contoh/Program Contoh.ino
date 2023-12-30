@@ -1,7 +1,3 @@
-// 10 September 2023
-// Alfan, Ayum, Rani
-// Program Contoh RFID
-
 // Menambahkan Library SPI dan MFRC522
 #include <SPI.h>
 #include <MFRC522.h>
