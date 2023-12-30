@@ -1,7 +1,3 @@
-// 10 September 2023
-// Alfan, Ayum, Rani
-// Program Nyala LED Blink dengan Touch Test
-
 const int ledPin = 2; // Pin LED
 const int touchPin = 4; // Pin sensor sentuh
 int touchCount = 0; // Variabel untuk menghitung sentuhan
